@@ -1,5 +1,5 @@
 
-from clases import Admin, Usuarios, Cliente
+
 
 def addUser(name, password, role):
     
@@ -13,7 +13,7 @@ def addUser(name, password, role):
         users[name] = name1  
 
 
-
+"""
 def menu_de_admin():
     seleccion = input((f"--SESION INICIADA COMO ADMINISTRADOR--\n1. Añadir Usuarios.\n2. Ver usuarios\n3. Otras opciones.\n4. Cerrar Sesion"))
     if seleccion == "1":
@@ -25,5 +25,6 @@ def menu_de_admin():
         print( admins, users)
 
 
-def menu_de_cliente():
+def menu_de_cliente(self):
     seleccion = input(f"--SESION INICIADA COMO CLIENTE--\n1. Añadir pedido.\n2. Ver usuarios\n3. Cerrar Sesion")      
+"""    

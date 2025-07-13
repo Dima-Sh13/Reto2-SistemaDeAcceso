@@ -1,11 +1,22 @@
 from utils.functions import *
 from utils.clases import *
-from utils.datastructures import *
 
 
 
-nombre = input("Introduzca nombre de usuario")
-contraseña = input("Introduzca la contraseña")
-rol = input("Introduzca un rol del usuario")
 
-addUser(nombre, contraseña, rol)
+usuario1 = Admin("forto", "1234")
+
+print(usuario1.password)
+
+
+
+"""
+    if pass_usuario_activo == admins[usuario_activo]:
+        print(f"Bienvenido{usuario_activo}")
+        if usuario_activo in admins:
+            menu_de_admin()
+        elif usuario_activo in users:
+            menu_de_cliente()    
+else:
+    print("Nombre de Usuario incorrecto, pruebe otra vez.")
+    """

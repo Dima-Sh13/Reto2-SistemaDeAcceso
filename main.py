@@ -30,12 +30,17 @@ Gestión de Sesiones:
 -Uso de métodos polimórficos (menu() definido de forma distinta en cada clase)
 -Validación de entrada por parte del usuario (por ejemplo, verificar si el usuario ya existe o si la contraseña es incorrecta)
 """
-admins = {"admin1": "1234" }
+from utils.functions import *
+from utils.clases import *
+
+
+admin1 = Admin("admin1", "1234")
+
+
+admins = {"admin1": admin1 }
 
 users= {}
 
-from utils.functions import *
-#from utils.clases import *
 
 
 
@@ -43,12 +48,25 @@ from utils.functions import *
 usuario_activo = input("Introduzca su nombre de usuario: ")
 
 if usuario_activo in admins or usuario_activo in users:
-    pass_usuario_activo = input("Introduzca su contraseña.")
-    if pass_usuario_activo == admins[usuario_activo]:
-        print(f"Bienvenido{usuario_activo}")
-        if usuario_activo in admins:
-            menu_de_admin()
-        elif usuario_activo in users:
-            menu_de_cliente()    
+    if usuario_activo in admins:
+        pass_usuario_activo = input("Introduzca su contraseña.")
+        if pass_usuario_activo == admins[usuario_activo].password:
+            usuario_activo = admins[usuario_activo]
+            print(usuario_activo.menu())
+        else:
+            print("Contraseña incorrecta, intentelo de nuevo.")    
+    elif usuario_activo in users:
+        pass_usuario_activo = input("Introduzca su contraseña.")
+        if pass_usuario_activo == users[usuario_activo].password:
+            usuario_activo = users[usuario_activo]
+            print(usuario_activo.menu())
+
 else:
-    print("Nombre de Usuario incorrecto, pruebe otra vez.")
+    print("Nombre de usuario incorrecto")    
+
+seleccion = input("Seleccione una opcion: ")
+
+if seleccion == "1":
+    nombre_nuevo_usuario = input("Introduzca un nombre para el nuevo Usuario: ")
+    pass_n_usuario = input("Introduzca una contraseña para el nuevo Usuario:  ")
+    rol_n_usuario = input("Introduzca un rol para el nuevo usuario: admin/cliente")
